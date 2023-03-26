@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "reddittableau"
+version = "0.1.0"
+description = ""
+authors = ["Luciano Filho <lvgalvaofilho@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+praw = "^7.7.0"
+pandas = "^1.5.3"
+jupyter = "^1.0.0"
+pyarrow = "^11.0.0"
+fastparquet = "^2023.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules" 
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.taskipy.tasks]
+lint = "blue . && isort ."
+docs = "mkdocs serve"
+test = "pytest -s -x --cov=code -vv"
+post_test = "coverage html"
