@@ -16,7 +16,7 @@ class RedditAPI():
             )
 
 
-    def fetch_data(self, subreddit_name, post_limit=10):
+    def fetch_data(self, subreddit_name, post_limit=500):
         subreddit = self.reddit.subreddit(subreddit_name)
         return [submission for submission in subreddit.top(time_filter="all", limit=post_limit)]
 
